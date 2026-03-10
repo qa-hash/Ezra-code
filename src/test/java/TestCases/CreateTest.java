@@ -26,6 +26,7 @@ public class CreateTest extends BaseClass{
 	     cs.EnterDetails("Test");
 	     cs.ClickSameday();
 	     cs.ClickContinue();
+	     cs.ClickDate();
 	     cs.ClickTime();
 	     cs.ClickSubmit();
 	}

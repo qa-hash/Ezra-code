@@ -38,10 +38,13 @@ public class Createservicepage extends Basepage{
 	@FindBy(xpath="//button[normalize-space()='Continue to Schedule']")
 	WebElement clickcontinue;
 	
+	@FindBy(xpath="(//button[normalize-space()='Within A Week'])[1]")
+	WebElement clickdate;
+	
 	@FindBy(xpath="//span[normalize-space()='Morning (8am - 12pm)']")
 	WebElement clicktime;
 	
-	@FindBy(xpath="//button[contains(text(),'Submit Request →')]")
+	@FindBy(xpath="//button[normalize-space()='Submit Request']")
 	WebElement clicksubmit;
 	
 	public void Creatservice() {
@@ -90,6 +93,10 @@ public class Createservicepage extends Basepage{
 	
 	public void ClickContinue() {
 		clickcontinue.click();
+	}
+	
+	public void ClickDate() {
+		clickdate.click();
 	}
 	
 	public void ClickTime() {
