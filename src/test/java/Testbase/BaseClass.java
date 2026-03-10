@@ -1,0 +1,39 @@
+package Testbase;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseClass {
+	
+	public static WebDriver driver;
+
+	@BeforeMethod
+	public void Setup() {
+		
+		ChromeOptions options=new ChromeOptions();
+		Map<String, Object> prefs=new HashMap<>();
+		 prefs.put("profile.password_manager_leak_detection", false);
+		options.setExperimentalOption("prefs", prefs);
+		
+		 driver=new ChromeDriver(options);
+		
+//		driver=new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+		driver.get("https://ezrainisrael.com/login");
+	}
+	
+	@AfterMethod
+	public void Teardown() throws InterruptedException {
+		Thread.sleep(1500);
+		driver.quit();
+	}
+}
